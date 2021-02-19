@@ -18,6 +18,7 @@ mat-card-content {
 }
 
 .game-field {
+  color: var(--primary-color);
   width: 95px;
   height: 95px;
   margin: 8px;
@@ -34,3 +35,5 @@ mat-card-content {
 button {
   margin-bottom: 16px;
 }
+
+

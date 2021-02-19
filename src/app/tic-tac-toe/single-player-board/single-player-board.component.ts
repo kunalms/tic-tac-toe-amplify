@@ -76,7 +76,8 @@ export class SinglePlayerBoardComponent implements OnInit {
     }
     // If the lastStatus is defined, render the snackbar so that user can reset the screen.
     if (this.lastStatus) {
-      const snackBarRef: MatSnackBarRef<any> = this.snackBar.open(this.lastStatus, 'Restart Game');
+      const snackBarRef: MatSnackBarRef<any> = this.snackBar.open(this.lastStatus, 'Restart Game',
+        {panelClass: ['my-snack-bar']});
 
       snackBarRef.afterDismissed().subscribe(() => {
         // If user dismisses the snackBar reload the page to reset.
