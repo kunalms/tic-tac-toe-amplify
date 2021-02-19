@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SinglePlayerBoardComponent } from './single-player-board.component';
+import { SharedModule } from '../../shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('SinglePlayerBoardComponent', () => {
   let component: SinglePlayerBoardComponent;
@@ -8,7 +10,11 @@ describe('SinglePlayerBoardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SinglePlayerBoardComponent]
+      declarations: [SinglePlayerBoardComponent],
+      imports: [
+        SharedModule,
+        BrowserAnimationsModule
+      ]
     })
       .compileComponents();
   });
