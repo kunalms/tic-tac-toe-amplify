@@ -26,6 +26,13 @@ mat-card-content {
   line-height: 95px;
   font-size: 60px;
   font-weight: bold;
+  cursor: pointer;
+  opacity: .25;
+
+  &.selected {
+    opacity: 1;
+    cursor: default;
+  }
 }
 
 .playing .game-field {

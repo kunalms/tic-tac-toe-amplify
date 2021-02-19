@@ -2,7 +2,7 @@
   <mat-card-content>
     <div class="tic-tac-toe">
       <div (click)="makeUserMove(i)" *ngFor="let boardCell of board; let i = index"
-           [@openClose]="boardCell !== symbols.player1 && boardCell !== symbols.player2 ? 'open': 'close'"
+           [ngClass]="{'game-field': true, 'selected': boardCell === symbols.player1 || boardCell === symbols.player2}"
            class='game-field'>
         {{boardCell}}
       </div>

@@ -1,22 +1,11 @@
 import { Component } from '@angular/core';
 import { TicTacToeHelperService } from '../../shared/services/tic-tac-toe-helper.service';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
-import { state, style, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-single-player-board',
   templateUrl: './single-player-board.component.html',
-  styleUrls: ['./single-player-board.component.scss'],
-  animations: [
-    trigger('openClose', [
-      state('close', style({
-        opacity: 1
-      })),
-      state('open', style({
-        opacity: 0.33,
-      }))
-    ])
-  ]
+  styleUrls: ['./single-player-board.component.scss']
 })
 export class SinglePlayerBoardComponent {
 
