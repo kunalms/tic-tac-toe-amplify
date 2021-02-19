@@ -1,0 +1,35 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: dist/tic-tac-toe-amplify
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+
+test:
+  phases:
+    preTest:
+      commands:
+        - npm ci
+        - wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+        - yum install -y ./google-chrome-stable_current_*.rpm
+    test:
+      commands:
+        - npm run test:ci
+  artifacts:
+      baseDirectory: dist
+      files:
+        - '**/*'
+      configFilePath: '**/jest.config.js'
+  cache:
+    paths:
+      - node_modules/**/*
