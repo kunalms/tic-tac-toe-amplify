@@ -8,7 +8,7 @@ frontend:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: dist/tic-tac-toe-amplify
+    baseDirectory: dist/ampify-tic-tac-toe
     files:
       - '**/*'
   cache:
