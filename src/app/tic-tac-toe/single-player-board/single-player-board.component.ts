@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TicTacToeHelperService } from '../../shared/services/tic-tac-toe-helper.service';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
 import { state, style, trigger } from '@angular/animations';
@@ -18,24 +18,46 @@ import { state, style, trigger } from '@angular/animations';
     ])
   ]
 })
-export class SinglePlayerBoardComponent implements OnInit {
+export class SinglePlayerBoardComponent {
 
+  /**
+   * holds the board state at any point in time.
+   */
   public board: Array<number | string> = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  /**
+   * Keeps a log of various moves made throughout the game.
+   */
   public moveLog: Array<{ field: number, player: number, symbol: string }>;
+  /**
+   * The game status.
+   */
   lastStatus = '';
+  /**
+   * Mapping of various user symbols
+   */
   readonly symbols = {
     player1: 'X',
     player2: 'O'
   };
+  /**
+   * Keeps a track of number of moves made so far.
+   * @private
+   */
   private moveCount = 0;
 
+  /**
+   * the default constructor.
+   * @param ticTacToeHelperService
+   * @param snackBar
+   */
   constructor(private ticTacToeHelperService: TicTacToeHelperService, private snackBar: MatSnackBar) {
     this.moveLog = [];
   }
 
-  ngOnInit(): void {
-  }
-
+  /**
+   * Makes the user move on the given input field.
+   * @param field - the index of the cell where user has moved.
+   */
   makeUserMove(field: number): void {
     // invalid move dont do anything.
     if (typeof this.board[field] !== 'number') {
@@ -58,6 +80,9 @@ export class SinglePlayerBoardComponent implements OnInit {
     }
   }
 
+  /**
+   * Checks for the completion of the game, if the game is over it show a snackbar with the relative message.
+   */
   updateGame(): void {
     // Check for various possibilities if the game is finished.
     if (this.ticTacToeHelperService.isGameFinished(this.board, this.symbols)) {
